@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ContadorPage extends StatefulWidget {
@@ -12,7 +11,6 @@ class _ContadorPageState extends State<ContadorPage> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
         appBar: AppBar(
           title: Text('Stateful'),
@@ -44,21 +42,33 @@ class _ContadorPageState extends State<ContadorPage> {
         ),
         FloatingActionButton(
           child: Icon(Icons.exposure_zero),
-          onPressed: () {},
+          onPressed: _reset,
         ),
         Expanded(child: SizedBox()),
         FloatingActionButton(
           child: Icon(Icons.remove),
-          onPressed: () {},
+          onPressed: _sustraer,
         ),
         SizedBox(
           width: 5.0,
         ),
         FloatingActionButton(
           child: Icon(Icons.add),
-          onPressed: () {},
+          onPressed: _agregar,
         ),
       ],
     );
+  }
+
+  void _agregar() {
+    setState(() => _conteo++);
+  }
+
+  void _sustraer() {
+    setState(() => _conteo--);
+  }
+
+  void _reset() {
+    setState(() => _conteo = 0);
   }
 }
